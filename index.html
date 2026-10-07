@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadIQ — AI Lead Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="top-nav">
+
+    <div class="brand">
+        <div class="brand-icon">◆</div>
+
+        <div>
+            <div class="brand-name">LeadIQ</div>
+            <div class="brand-subtitle">AI Lead Intelligence</div>
+        </div>
+    </div>
+
+    <nav>
+        <button class="nav-item active" data-page="home">
+            Overview
+        </button>
+
+        <button class="nav-item" data-page="inbox">
+            Priority Inbox
+        </button>
+    </nav>
+
+</header>
+
+
+<main class="app-container">
+
+    <!-- ================= OVERVIEW ================= -->
+
+    <section id="home-page" class="page active">
+
+        <div class="hero">
+
+            <div>
+
+                <div class="eyebrow">
+                    AI-POWERED SELLER INTELLIGENCE
+                </div>
+
+                <h1>
+                    Focus on the leads<br>
+                    most likely to convert.
+                </h1>
+
+                <p>
+                    LeadIQ ranks incoming buyer inquiries by predicted
+                    conversion potential so sellers know where to focus first.
+                </p>
+
+            </div>
+
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                Model active
+            </div>
+
+        </div>
+
+
+        <!-- METRICS -->
+
+        <div class="metrics-grid">
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    INCOMING LEADS
+                </div>
+
+                <div id="total-leads" class="metric-value">
+                    —
+                </div>
+
+                <div class="metric-sub">
+                    Currently in your pipeline
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    NEED ATTENTION
+                </div>
+
+                <div id="high-leads" class="metric-value">
+                    —
+                </div>
+
+                <div class="metric-sub">
+                    Top 10% ranked by AI
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    OPPORTUNITY VALUE
+                </div>
+
+                <div id="high-value" class="metric-value">
+                    —
+                </div>
+
+                <div class="metric-sub">
+                    High-priority inquiries
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-label">
+                    TOP-DECILE LIFT
+                </div>
+
+                <div class="metric-value">
+                    1.78×
+                </div>
+
+                <div class="metric-sub">
+                    Conversion rate vs. overall leads
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOP LEADS -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Prioritize Now
+                    </h2>
+
+                    <p>
+                        The buyer inquiries with the highest predicted
+                        conversion potential.
+                    </p>
+
+                </div>
+
+                <button class="text-button" id="open-inbox">
+                    View all →
+                </button>
+
+            </div>
+
+
+            <div id="top-leads-container"></div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        How LeadIQ helps
+                    </h2>
+
+                    <p>
+                        Turn a large stream of inquiries into a clear
+                        seller decision.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="value-grid">
+
+                <div class="value-card">
+
+                    <span>
+                        01 · RANK
+                    </span>
+
+                    <h3>
+                        Prioritize
+                    </h3>
+
+                    <p>
+                        Rank incoming inquiries by predicted
+                        conversion potential.
+                    </p>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <span>
+                        02 · EXPLAIN
+                    </span>
+
+                    <h3>
+                        Understand
+                    </h3>
+
+                    <p>
+                        Show sellers why a lead deserves attention.
+                    </p>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <span>
+                        03 · ACT
+                    </span>
+
+                    <h3>
+                        Respond
+                    </h3>
+
+                    <p>
+                        Recommend the next sales action for the lead.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- ================= PRIORITY INBOX ================= -->
+
+    <section id="inbox-page" class="page">
+
+        <div class="page-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    SELLER WORKSPACE
+                </div>
+
+                <h1>
+                    AI Priority Inbox
+                </h1>
+
+                <p>
+                    LeadIQ tells you where to focus first.
+                </p>
+
+            </div>
+
+
+            <div class="inbox-summary">
+
+                <span id="filtered-count">
+                    0
+                </span>
+
+                ranked opportunities
+
+            </div>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+            <div class="filter-group">
+
+                <label>
+                    Priority
+                </label>
+
+                <select id="priority-filter">
+
+                    <option value="All">
+                        All
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>
+                    Urgency
+                </label>
+
+                <select id="urgency-filter">
+
+                    <option value="All">
+                        All
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>
+                    Product Category
+                </label>
+
+                <select id="category-filter">
+
+                    <option value="All">
+                        All
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-group search-group">
+
+                <label>
+                    Search
+                </label>
+
+                <input
+                    id="search-input"
+                    type="text"
+                    placeholder="Search buyer or seller..."
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- LEAD LIST -->
+
+        <div id="lead-list"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= LEAD DETAIL DRAWER ================= -->
+
+<div id="drawer-overlay" class="drawer-overlay"></div>
+
+
+<aside id="lead-drawer" class="lead-drawer">
+
+    <div class="drawer-header">
+
+        <div>
+
+            <div class="eyebrow">
+                LEAD DETAIL
+            </div>
+
+            <h2 id="drawer-title">
+                Lead
+            </h2>
+
+        </div>
+
+
+        <button
+            id="close-drawer"
+            class="close-button"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="drawer-content"></div>
+
+</aside>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
